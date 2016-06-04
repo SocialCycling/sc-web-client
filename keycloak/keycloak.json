@@ -1,8 +1,0 @@
-{
-  "realm": "socialcycling",
-  "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4lTaEBUSYsbLl8cWPiH5a7nj1eMyqgv4hL/geYDqziOIjGYKvVsv61MOBIEgp2AGH+qCdG78uVSVDFrUb3f+E3HYHSIN8H8UgKJyD7MEcXyy0J+XB2e1Z0AE1B+tUOIEkIroCl5/+1hI58uaxgBpYJmR3eHKAEWup5XjvgdJe3Ej2s0AZ1NzkSIXH6DC0pBWxwqZiMBi9L33ZlaBXKnIyPBerqdHbJn1k54Oyql6TbeMciCln2FX+cpBA2xp1nsPeGwS/yEd+Vhs0845sc3ARVHyQNvmndnrDuZI7pXfjKOkM2NsVo8RTIeOnRc119O+JX2MHQ1rLgNDRYQCnn7jrwIDAQAB",
-  "auth-server-url": "http://localhost:9080/auth",
-  "ssl-required": "external",
-  "resource": "sc-web-client",
-  "public-client": true
-}
