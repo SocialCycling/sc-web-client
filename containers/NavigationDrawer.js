@@ -3,9 +3,8 @@ import NavigationDrawer from '../components/NavigationDrawer'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { withRouter } from 'react-router'
 
-import { navigationDrawerChange } from '../actions/navigationDrawer'
+import { navigationDrawerChange, navigationDrawerToggle } from '../actions/navigationDrawer'
 import keycloak from '../keycloak'
 import links from '../config/links.json'
 
@@ -28,7 +27,8 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = {
-	onRequestChange : navigationDrawerChange
+	onRequestChange : navigationDrawerChange,
+	navigationDrawerToggle : navigationDrawerToggle
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NavigationDrawerContainer))
+export default connect(mapStateToProps, mapDispatchToProps)(NavigationDrawerContainer)

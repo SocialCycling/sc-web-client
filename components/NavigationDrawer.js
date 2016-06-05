@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router'
 import Drawer from 'material-ui/Drawer'
 import ListItem from 'material-ui/List/ListItem'
 import MenuItem from 'material-ui/MenuItem'
@@ -22,7 +23,8 @@ const containerStyle = {
 
 const NavigationDrawer = ({
 	open, authReady, authenticated, name,
-	onRequestChange, login, register, accountManagement, logout
+	onRequestChange, navigationDrawerToggle, 
+	login, register, accountManagement, logout
 }) => (
 	<Drawer 
 		docked={false}
@@ -39,7 +41,10 @@ const NavigationDrawer = ({
 		}
 
 		{authReady && authenticated &&
-			<MenuItem 
+			<MenuItem
+				linkButton
+				containerElement={<Link to="/dialogs" />}
+				onTouchTap={navigationDrawerToggle}
 				primaryText="Dialogs"
 				leftIcon={<Chat/>} />
 		}
@@ -47,6 +52,9 @@ const NavigationDrawer = ({
 
 		{authReady && authenticated &&
 			<MenuItem 
+				linkButton
+				containerElement={<Link to="/notifications" />}
+				onTouchTap={navigationDrawerToggle}
 				primaryText="Notifications"
 				leftIcon={<Notifications/>} />
 		}
@@ -57,18 +65,27 @@ const NavigationDrawer = ({
 
 		<Subheader>Trips</Subheader>
 		 
-		<MenuItem 
+		<MenuItem
+			linkButton
+			containerElement={<Link to="/trips/search" />}
+			onTouchTap={navigationDrawerToggle}
 			primaryText="Search" 
 			leftIcon={<ActionSearch/>} />
 
 		{authReady && authenticated &&
 			<MenuItem 
+				linkButton
+				containerElement={<Link to="/trips/manage" />}
+				onTouchTap={navigationDrawerToggle}
 				primaryText="Browse"
 				leftIcon={<DirectionsBike/>} />
 		}
 
 		{authReady && authenticated &&
 			<MenuItem 
+				linkButton
+				containerElement={<Link to="/trips/create" />}
+				onTouchTap={navigationDrawerToggle}
 				primaryText="Create"
 				leftIcon={<ContentCreate/>} />
 		}
