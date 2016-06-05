@@ -10,7 +10,11 @@ import links from '../config/links.json'
 
 
 const NavigationDrawerContainer = (props) => (
-	<NavigationDrawer {...props} />
+	<NavigationDrawer {...props} 
+		login = {keycloak.login}
+		register = {keycloak.register}
+		accountManagement = {keycloak.accountManagement}
+		logout = {keycloak.logout.bind(null, {redirectUri : links.self})} />
 )
 
 const mapStateToProps = (state, ownProps) => {
@@ -19,10 +23,6 @@ const mapStateToProps = (state, ownProps) => {
 		authReady : state.auth.ready,
 		authenticated : state.auth.authenticated,
 		name : state.auth.name,
-		login : keycloak.login,
-		register : keycloak.register,
-		accountManagement : keycloak.accountManagement,
-		logout : keycloak.logout.bind(null, {redirectUri : links.self})
 	}
 }
 
