@@ -1,4 +1,4 @@
-import {AUTH_INIT_SUCCESS, AUTH_SUCCESS, AUTH_REFRESH_SUCCESS} from '../constants/actions'
+import {AUTH_INIT_SUCCESS, AUTH_SUCCESS, AUTH_REFRESH_SUCCESS, AUTH_LOGOUT} from '../constants/actions'
 
 const initialState = {
 	ready : false,
@@ -22,6 +22,11 @@ export default function auth(state = initialState, action) {
 			return {
 				...state,
 				...action.payload
+			}
+		case AUTH_LOGOUT:
+			return {
+				ready : true,
+				authenticated : false
 			}
 		default:
 			return state

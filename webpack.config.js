@@ -28,6 +28,12 @@ module.exports = {
         test: /\.css?$/,
         loaders: ['style', 'raw'],
         include: __dirname
+      },
+      {
+        test: /\.json?$/,
+        loaders: ['json-loader'],
+        exclude: /config\/keycloak\.json/,
+        include: __dirname
       }
     ]
   }
