@@ -3,6 +3,7 @@ import NavigationDrawer from '../components/NavigationDrawer'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { withRouter } from 'react-router'
 
 import { navigationDrawerChange } from '../actions/navigationDrawer'
 import keycloak from '../keycloak'
@@ -18,6 +19,7 @@ const mapStateToProps = (state, ownProps) => {
 		open : state.navigationDrawer.open,
 		authReady : state.auth.ready,
 		authenticated : state.auth.authenticated,
+		name : state.auth.name,
 		login : keycloak.login,
 		register : keycloak.register,
 		accountManagement : keycloak.accountManagement,
@@ -29,4 +31,4 @@ const mapDispatchToProps = {
 	onRequestChange : navigationDrawerChange
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavigationDrawerContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NavigationDrawerContainer))
