@@ -18,10 +18,11 @@ const UIRoot = ({authReady, authenticated, login, register, children, location})
   const { pathname } = location
 
   if (!authReady) {
-    content = (
+    return (
       <CircularProgress style={centeredStyle} key="checking_auth" />
     )
-  } else if (!authenticated && (
+  } 
+  if (!authenticated && (
       pathname.startsWith("/trips/manage")
       || pathname.startsWith("/trips/create")
       || pathname.startsWith("/dialogs")
