@@ -1,10 +1,13 @@
 import React, {Component } from 'react'
-import AppBar from '../containers/AppBar'
-import Snackbar from '../containers/Snackbar'
-import NavigationDrawer from '../containers/NavigationDrawer'
+
 import CircularProgress from 'material-ui/CircularProgress'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
+
+import AppBar from '../containers/AppBar'
+import Snackbar from '../containers/Snackbar'
+import NavigationDrawer from '../containers/NavigationDrawer'
+import PositionTracker from '../containers/PositionTracker'
 
 const centeredStyle = {
   position: 'fixed',
@@ -48,6 +51,7 @@ const UIRoot = ({authReady, authenticated, login, register, children, location})
     <div id="ui-root">
       <AppBar />
       <NavigationDrawer />
+      <PositionTracker />
       {content}
       <Snackbar />
     </div>

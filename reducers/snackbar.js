@@ -1,4 +1,4 @@
-import {AUTH_LOGOUT, HIDE_SNACKBAR} from '../constants/actions'
+import {AUTH_LOGOUT, GEOLOCATION_ERROR, HIDE_SNACKBAR} from '../constants/actions'
 
 const initialState = {
 	open : false,		// should show snackbar ?
@@ -8,11 +8,12 @@ const initialState = {
 
 export default function snackbar(state = initialState, action) {
 	switch (action.type) {
-		// actions without payload
 		case AUTH_LOGOUT:
-			return { 
-				open : true, 
-				type : action.type
+		case GEOLOCATION_ERROR:
+			return {
+				open : true,
+				type : action.type,
+				payload : action.payload
 			}
 		case HIDE_SNACKBAR:
 			return {

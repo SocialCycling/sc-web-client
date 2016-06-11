@@ -6,14 +6,25 @@ import { bindActionCreators } from 'redux'
 
 import hideSnackbar from '../actions/snackbar'
 import keycloak from '../keycloak'
+import {getApproximatePosition} from '../actions/geolocation'
 
-import { AUTH_LOGOUT } from '../constants/actions'
+import { AUTH_LOGOUT, GEOLOCATION_ERROR } from '../constants/actions'
 
 const values = {
 	AUTH_LOGOUT : {
 		message : (payload) => ("You have been logged out"),
 		actionLabel : "relogin",
 		action : (payload, dispatch) => { keycloak.login() }
+	},
+	GEOLOCATION_ERROR : {
+		message : (payload) => (
+			"Cannot determine your current position" + (
+				payload.message
+				? ": " + payload.message
+				: ""
+			)
+		),
+		action : (payload, dispatch) => {}
 	}
 }
 
